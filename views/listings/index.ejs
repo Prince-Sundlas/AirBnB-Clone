@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wander Lust</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fff;
+            margin: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            height: 5rem;
+            background: linear-gradient(90deg, #d32f2f, #b71c1c);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            color: #fff !important;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            text-align: center;
+            margin: 30px 0 20px;
+            font-weight: 600;
+            color: #b71c1c;
+        }
+
+        .btn-red {
+            background: linear-gradient(90deg, #d32f2f, #b71c1c);
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            transition: background 0.3s ease-in-out, transform 0.2s;
+        }
+
+        .btn-red:hover {
+            background: linear-gradient(90deg, #b71c1c, #7f0000);
+            transform: scale(1.05);
+        }
+
+        .card {
+            border: none;
+            margin: 1.8rem;
+            border-radius: 1rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(183, 28, 28, 0.2);
+        }
+
+        .card-img-top {
+            border-radius: 1rem 1rem 0 0;
+            width: 100%;
+            height: 20rem;
+            object-fit: cover;
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: #b71c1c;
+            margin-bottom: 0.4rem;
+        }
+
+        .card-text {
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .listing-link {
+            text-decoration: none;
+        }
+
+        .foot {
+            background: #b71c1c;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+
+        .content {
+            text-decoration: none;
+            color: #fff;
+            margin: 5px;
+        }
+
+        .content:hover {
+            text-decoration: underline;
+            color: #ffebee;
+        }
+
+        .icons a {
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: #ffcdd2;
+            margin: 0 10px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .icons a:hover {
+            color: #fff;
+        }
+
+        .alert {
+            border-radius: 10px;
+        }
+        .filters{
+         margin-top: 1.4rem;
+         margin-left: 25px; 
+         display: flex;
+         flex-wrap: wrap;
+         align-items: center;  
+        }
+        .filter{
+            margin-right: 3.7rem;
+            margin-left: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            opacity: 0.65;
+        }
+        .filter:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+        .form-switch{
+            border-radius: 20px;
+            padding: 1rem;
+        }
+        span{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <%- include("../includes/navbar.ejs") %>
+
+    <% if (success && success.length ){ %>
+    <div class="alert alert-success alert-dismissible fade show col-6 offset-3 mt-4" role="alert">
+        <%= success %> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% } %>
+
+    <% if (error && error.length ){ %>
+    <div class="alert alert-danger alert-dismissible fade show col-6 offset-3 mt-4" role="alert">
+        <%= error %> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% } %>
+    <div class="filters">
+        <div class="filter">
+            <div class="icon"><i class="fa-solid fa-fire"></i></div>
+            <p>Trending</p>
+        </div>
+        <div class="filter">
+            <div class="icon"><i class="fa-solid fa-house-chimney"></i></div>
+            <p>Rooms</p>
+        </div>
+        <div class="filter">
+            <div class="icon"><i class="fa-solid fa-mountain-sun"></i></div>
+            <p>Mountains</p>
+        </div>
+        <div class="filter">
+            <div class="icon"><i class="fa-solid fa-water-ladder"></i></div>
+            <p>Pool</p>
+        </div>
+        
+        <div class="filter">
+            <div class="icon"><i class="fa-solid fa-tree"></i></div>
+            <p>Camping</p>
+        </div>
+        <div class="filter">
+            <div class="icon"><i class="fa-solid fa-plane-up"></i></div>
+            <p>International</p>
+        </div>
+        <div class="filter">
+            <div class="icon"><i class="fa-solid fa-tractor"></i></div>
+            <p>Farms</p>
+        </div>
+        <div class="filter">
+            <div class="icon"><i class="fa-solid fa-dollar-sign"></i></div>
+            <p>Luxury</p>
+        </div>
+        <div class="filter">
+            <div class="icon"><i class="fa-solid fa-sailboat"></i></div>
+            <p>Boats</p>
+        </div>
+        <div class="filter">
+            <div class="icon"><i class="fa-solid fa-warehouse"></i></div>
+            <p>WareHouse</p>
+        </div>
+        <div class="form-check-reverse form-switch toggle-tax">
+            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+            <label class="form-check-label" for="switchCheckDefault">Include Taxes</label>
+          </div>
+    </div>
+    <h3>Welcome to the Listings</h3>
+    <div class="text-center my-4">
+        <form action="http://localhost:1212/listings/new" method="get">
+            <button class="btn btn-red btn-lg">Add New</button>
+        </form>
+    </div>
+    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-1 px-3 ">
+        <% for (list of all_list) { %>
+        <a href="http://localhost:1212/listings/view/<%= list._id %>" class="listing-link">
+            <div class="card col" style="width: 17rem;">
+                <img src="<%= list.imgurl %>" class="card-img-top" alt="<%= list.title %>">
+                <div class="card-body">
+                    <h5 class="card-title"><%= list.title %></h5>
+                    <p class="card-text">
+                        &#8377;<%= list.price.toLocaleString("EN-in")%> <span style="font-size: medium; color: black;">+18%GST</span>
+                    </p>
+                </div>
+            </div>
+        </a>
+        <% } %>
+    </div>
+
+    <%- include("../includes/foot.ejs") %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let checkBox = document.querySelector(".form-check-input");
+        let Taxes = document.querySelectorAll(".card-text span");
+    
+        function updateTaxes() {
+            for (let tax of Taxes) {
+                tax.style.display = checkBox.checked ? "inline" : "none";
+            }
+        }
+    
+        updateTaxes();
+    
+        checkBox.addEventListener("change", updateTaxes);
+    </script>    
+</body>
+</html>

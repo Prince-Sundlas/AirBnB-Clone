@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wander Lust</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <style>
+        .navbar{
+            height: 5rem;
+            background-color: rgba(208, 228, 239, 0.914);
+        }
+        .navbar-brand{
+            color: red;
+            font-size: 3rem;
+        }
+        body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+            }
+
+    .foot {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: gray;
+        text-align: center;
+        padding: 10px;
+        width: 100%;
+        margin-top: auto; 
+        }
+        .content{
+            text-decoration: none;
+            color: black;
+            margin: 5px;
+        }
+        .content:hover{
+            text-decoration: underline;
+            color: red;
+        }
+        .icons a{
+            font-size: xx-large;
+            text-decoration: none;
+            color: black;
+        }
+        .icons a:hover{
+            color: red;
+        }
+        h1{
+            color: red;
+            text-align: center;
+            margin-top: 14%;
+        }
+        form{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <%- include("./includes/navbar.ejs") %>
+    <h1><%=errormsg%></h1>
+    <form action="/" method="get">
+        <button>Home Page</button>
+    </form>
+    <%- include("./includes/foot.ejs") %>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</html>
