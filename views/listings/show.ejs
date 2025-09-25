@@ -179,10 +179,10 @@
     </div>
     <% if(Auser && Auser._id.equals(list.owner._id)){ %>
     <div class="btns">
-        <form action="http://localhost:1212/listings/<%=list._id%>/edit" method="get">
+        <form action="/listings/<%=list._id%>/edit" method="get">
             <button class="btn btn-outline-dark">Edit</button>
         </form>        
-        <form action="http://localhost:1212/listings/view/<%=list._id%>?_method=DELETE" method="post">
+        <form action="/listings/view/<%=list._id%>?_method=DELETE" method="post">
             <button class="btn btn-red">Delete</button>
         </form>
     </div>
